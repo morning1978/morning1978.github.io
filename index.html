@@ -58,13 +58,15 @@
     .project-item{display:flex;min-height:112px;padding:18px;flex-direction:column;justify-content:space-between;background:var(--paper);border:1px solid var(--line);color:var(--muted)}
     .project-item:nth-child(7){grid-column:span 2}
     .project-ordinal{font:950 27px ui-monospace,Consolas,monospace;letter-spacing:-.04em}
+    .project-kind{margin-top:8px;color:var(--ink);font-size:14px;line-height:1.45;font-weight:850}
     .project-label{font:800 9px ui-monospace,Consolas,monospace;letter-spacing:.13em}
     .project-item--featured{order:-1;grid-column:span 2;grid-row:span 2;min-height:236px;padding:0;background:var(--ink);border-color:var(--ink);color:var(--paper)}
     .project-item--featured a{display:flex;height:100%;padding:26px;flex-direction:column;justify-content:space-between;text-decoration:none;transition:background .2s ease}
     .project-item--featured a:hover,.project-item--featured a:focus-visible{background:var(--blue)}
     .project-item--featured .project-ordinal{color:var(--sky);font-size:clamp(52px,7vw,82px)}
+    .project-item--featured .project-kind{margin:4px 0 auto;color:var(--paper);font-size:16px}
     .project-feature-title{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
-    .project-feature-title strong{font-size:38px;line-height:1;letter-spacing:-.04em}
+    .project-feature-title strong{font-size:clamp(18px,2.1vw,28px);line-height:1.05;letter-spacing:-.03em}
     .project-feature-title span{color:var(--sky);font:900 11px ui-monospace,Consolas,monospace;letter-spacing:.1em}
     .about-card{position:relative;padding:52px 58px;background:var(--paper);border:2px solid var(--ink)}
     .wordmark{display:flex;align-items:center;gap:18px;margin:30px 0 28px;color:var(--blue);font-weight:950;font-size:clamp(22px,4vw,38px);letter-spacing:.06em}
@@ -93,7 +95,7 @@
       .project-item{min-height:96px;padding:15px}
       .project-item--featured{min-height:210px}
       .project-item--featured a{padding:22px}
-      .project-feature-title strong{font-size:32px}
+      .project-feature-title strong{font-size:22px}
       .wordmark{align-items:flex-start;flex-direction:column;gap:8px}
       footer .shell{flex-direction:column}
     }
@@ -124,13 +126,12 @@
         <div class="feature-copy">
           <div class="post-head"><span>20TH PROJECT CELECEAN</span><time datetime="2026-06-25">2026-06-25</time></div>
           <h2 id="rim-title">RIM：干员们的现代演习</h2>
-          <p>RIM（Rhodes Island Maneuver）是一款围绕《明日方舟》角色展开的非商业同人游戏。它将干员剧情、策略性的回合制战斗与随机探索组合在一起。</p>
+          <p>RIM（Rhodes Island Maneuver）是一款个人主导开发的《明日方舟》IP的非商业二次创作同人游戏。它将视觉小说、策略性的回合制战斗与随机探索组合在一起。</p>
           <p>开发过程、剧情文本与最新进度都集中记录在独立官网中。</p>
-          <a class="cta" href="/rim/">进入 RIM 官网 <span>→</span></a>
+          <a class="cta" href="/rim/">欢迎前往RIM 官网 →</a>
         </div>
         <div class="feature-mark" aria-hidden="true">
-          <span class="feature-number">20</span>
-          <strong class="feature-name">RIM</strong>
+          <strong class="feature-name">20TH</strong>
           <span class="feature-caption">PROJECT CELECEAN</span>
         </div>
       </section>
@@ -141,36 +142,37 @@
             <p class="eyebrow">PROJECT INDEX</p>
             <h2 id="projects-title">作品列表</h2>
           </div>
-          <p class="index-count">8 PROJECTS / 01—20</p>
+          <p class="index-count">8 PROJECTS</p>
         </div>
         <ol class="project-grid">
-          <li class="project-item"><span class="project-ordinal">1ST</span><span class="project-label">PROJECT CELECEAN</span></li>
-          <li class="project-item"><span class="project-ordinal">2ND</span><span class="project-label">PROJECT CELECEAN</span></li>
-          <li class="project-item"><span class="project-ordinal">3RD</span><span class="project-label">PROJECT CELECEAN</span></li>
-          <li class="project-item"><span class="project-ordinal">5TH</span><span class="project-label">PROJECT CELECEAN</span></li>
-          <li class="project-item"><span class="project-ordinal">7TH</span><span class="project-label">PROJECT CELECEAN</span></li>
-          <li class="project-item"><span class="project-ordinal">9TH</span><span class="project-label">PROJECT CELECEAN</span></li>
-          <li class="project-item"><span class="project-ordinal">19TH</span><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">1ST</span><strong class="project-kind">东方同人STG</strong><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">2ND</span><strong class="project-kind">东方同人STG</strong><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">3RD</span><strong class="project-kind">东方同人STG（开发中）</strong><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">5TH</span><strong class="project-kind">COC同人RPG</strong><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">7TH</span><strong class="project-kind">规则怪谈同人RPG</strong><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">9TH</span><strong class="project-kind">卡牌对战游戏TCG</strong><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">19TH</span><strong class="project-kind">回合制卡片Roguelike</strong><span class="project-label">PROJECT CELECEAN</span></li>
           <li class="project-item project-item--featured">
             <a href="/rim/" aria-label="进入第二十号作品 RIM 官网">
               <span class="project-ordinal">20TH</span>
+              <strong class="project-kind">明日方舟同人游戏</strong>
               <span class="project-label">PROJECT CELECEAN</span>
-              <span class="project-feature-title"><strong>RIM</strong><span>ENTER →</span></span>
+              <span class="project-feature-title"><strong>Rhodes Island Maneuver</strong><span>ENTER →</span></span>
             </a>
           </li>
         </ol>
       </section>
 
       <article class="about-card" id="celecean">
-        <div class="post-head"><span>ABOUT / 00</span><time datetime="2026-07-31">2026.07.31</time></div>
-        <h2>Celecean，这个名字</h2>
+        <div class="post-head"><span></span><time>est.2023</time></div>
+        <h2>关于名称的由来</h2>
         <div class="wordmark"><span>CELESTE</span><b>+</b><span>OCEAN</span><i>= CELECEAN</i></div>
-        <p>Celecean 由“celeste”与“ocean”组合而来。</p>
-        <p>“celeste”让人想到天空、星光与澄澈的蓝；“ocean”意味着海洋。这个名字描绘天空与海洋相接的颜色，也用来收纳这里正在制作的作品与想法。</p>
+        <p>Celecean 由“celeste”与“ocean”组合而来。曾经使用过“celeceon”这个改了一个字母的版本。</p>
+        <p>“celeste”的意思是天空；“ocean”意味着海洋。<br>它们的组合Celecean是个人游戏开发项目的名称。<br>这个名字希望能概括收纳在这里的作品的特征：广阔无垠。</p>
       </article>
     </div>
   </main>
 
-  <footer><div class="shell"><span>CELECEAN</span><span>CELESTE + OCEAN</span></div></footer>
+  <footer><div class="shell"><span>PROJECT CELECEAN</span><span>BY Quadintec</span></div></footer>
 </body>
 </html>
