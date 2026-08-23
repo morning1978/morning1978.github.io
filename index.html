@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Celecean：来自 celeste 与 ocean，记录 RIM 与正在发生的创作。">
+  <meta name="description" content="Celecean 收录八个创作项目，重点展示第 20 号作品 RIM。">
   <title>CELECEAN</title>
   <style>
     :root{
       --ink:#082c58;
+      --deep:#061f40;
       --blue:#0d4b96;
       --sky:#69cce9;
       --foam:#f8f5e9;
@@ -18,41 +19,87 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--foam);color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif}
+    ::selection{background:var(--sky);color:var(--deep)}
     a{color:inherit}
     .shell{width:min(1080px,calc(100% - 40px));margin:auto}
-    header{position:relative;overflow:hidden;padding:24px 0 46px;background:var(--ink);color:var(--paper);border-bottom:6px solid var(--sky)}
-    header:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#ffffff10 1px,transparent 1px),linear-gradient(#ffffff0c 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(90deg,#000,transparent)}
-    header:after{content:"";position:absolute;right:-10vw;bottom:-220px;width:720px;height:420px;border:75px solid #69cce930;border-radius:50%}
+    header{position:relative;overflow:hidden;padding:24px 0 46px;background:linear-gradient(135deg,var(--deep),var(--ink) 58%,#0b417e);color:var(--paper);border-bottom:6px solid var(--sky)}
+    header:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#ffffff10 1px,transparent 1px),linear-gradient(#ffffff0c 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(90deg,#000,transparent 78%)}
+    header:after{content:"";position:absolute;right:-8vw;bottom:-230px;width:720px;height:420px;border:72px solid #69cce92c;border-radius:50%;box-shadow:0 0 0 36px #69cce90c}
     nav,.hero{position:relative;z-index:1}
     nav{display:flex;justify-content:space-between;align-items:center}
     .brand{font-weight:950;font-size:24px;letter-spacing:.12em;text-decoration:none}
     .brand span{color:var(--sky)}
-    nav>a:last-child{font:800 11px ui-monospace,Consolas,monospace;letter-spacing:.12em;text-decoration:none;border-bottom:2px solid var(--sky);padding-bottom:5px}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links a{font:800 11px ui-monospace,Consolas,monospace;letter-spacing:.12em;text-decoration:none;border-bottom:2px solid transparent;padding-bottom:5px;transition:border-color .2s ease,color .2s ease}
+    .nav-links a:hover,.nav-links a:focus-visible{color:var(--sky);border-color:var(--sky)}
     .hero{padding-top:48px;max-width:820px}
     .eyebrow{margin:0;color:var(--sky);font:900 11px ui-monospace,Consolas,monospace;letter-spacing:.18em}
-    h1{margin:18px 0 22px;font-size:clamp(46px,8vw,92px);line-height:.95;letter-spacing:-.055em}
-    main{padding:88px 0 120px;background:linear-gradient(90deg,#0d4b9608 1px,transparent 1px);background-size:72px 72px}
-    .posts{display:grid;gap:34px}
-    article{position:relative;padding:52px 58px;background:var(--paper);border:3px solid var(--ink);box-shadow:10px 10px 0 #0d4b9618}
-    article:first-child{border-left:9px solid var(--sky)}
+    h1{margin:18px 0 0;font-size:clamp(46px,8vw,92px);line-height:.95;letter-spacing:-.055em}
+    main{padding:82px 0 120px;background:linear-gradient(90deg,#0d4b9608 1px,transparent 1px),linear-gradient(#0d4b9607 1px,transparent 1px);background-size:72px 72px}
+    .posts{display:grid;gap:46px}
+    .feature-card{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.65fr);overflow:hidden;background:var(--paper);border:3px solid var(--ink);box-shadow:12px 12px 0 #0d4b9618}
+    .feature-copy{padding:52px 58px}
     .post-head{display:flex;justify-content:space-between;gap:24px;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--line);color:var(--blue);font:900 11px ui-monospace,Consolas,monospace;letter-spacing:.12em}
     h2{margin:0 0 24px;color:var(--blue);font-size:clamp(30px,5vw,48px);line-height:1.15;letter-spacing:-.04em}
-    article p{max-width:760px;margin:0 0 16px;color:#314f72;font-size:17px;line-height:1.9}
-    .cta{display:inline-flex;align-items:center;gap:28px;margin-top:20px;padding:16px 20px;background:var(--ink);color:var(--paper);box-shadow:5px 5px 0 var(--sky);font:900 11px ui-monospace,Consolas,monospace;letter-spacing:.1em;text-decoration:none}
+    .feature-copy p,.about-card p{max-width:760px;margin:0 0 16px;color:#314f72;font-size:17px;line-height:1.9}
+    .cta{display:inline-flex;align-items:center;gap:28px;margin-top:20px;padding:16px 20px;background:var(--ink);color:var(--paper);box-shadow:5px 5px 0 var(--sky);font:900 11px ui-monospace,Consolas,monospace;letter-spacing:.1em;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+    .cta:hover,.cta:focus-visible{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--sky);background:var(--blue)}
+    .feature-mark{position:relative;display:flex;min-height:430px;padding:34px;flex-direction:column;justify-content:center;align-items:flex-start;overflow:hidden;background:linear-gradient(155deg,var(--deep),var(--ink) 65%,#0c4d92);color:var(--paper)}
+    .feature-mark:before{content:"";position:absolute;right:-110px;top:-90px;width:290px;height:290px;border:42px solid #69cce928;border-radius:50%}
+    .feature-mark:after{content:"";position:absolute;left:0;right:0;bottom:72px;height:1px;background:#69cce970}
+    .feature-number{position:relative;color:transparent;font-size:clamp(96px,12vw,154px);font-weight:950;line-height:.78;letter-spacing:-.08em;-webkit-text-stroke:2px var(--sky)}
+    .feature-name{position:relative;margin-top:20px;font-size:clamp(52px,7vw,82px);font-weight:950;line-height:.8;letter-spacing:-.06em}
+    .feature-caption{position:relative;margin-top:34px;color:var(--sky);font:900 10px ui-monospace,Consolas,monospace;letter-spacing:.16em}
+    .project-index{padding:50px 54px 56px;background:#eaf3f4;border:2px solid var(--ink);box-shadow:8px 8px 0 #69cce930}
+    .index-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px}
+    .index-head h2{margin:8px 0 0}
+    .index-count{margin:0 0 8px;color:var(--muted);font:900 11px ui-monospace,Consolas,monospace;letter-spacing:.13em}
+    .project-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:12px;margin:0;padding:0;list-style:none}
+    .project-item{display:flex;min-height:112px;padding:18px;flex-direction:column;justify-content:space-between;background:var(--paper);border:1px solid var(--line);color:var(--muted)}
+    .project-item:nth-child(7){grid-column:span 2}
+    .project-ordinal{font:950 27px ui-monospace,Consolas,monospace;letter-spacing:-.04em}
+    .project-label{font:800 9px ui-monospace,Consolas,monospace;letter-spacing:.13em}
+    .project-item--featured{order:-1;grid-column:span 2;grid-row:span 2;min-height:236px;padding:0;background:var(--ink);border-color:var(--ink);color:var(--paper)}
+    .project-item--featured a{display:flex;height:100%;padding:26px;flex-direction:column;justify-content:space-between;text-decoration:none;transition:background .2s ease}
+    .project-item--featured a:hover,.project-item--featured a:focus-visible{background:var(--blue)}
+    .project-item--featured .project-ordinal{color:var(--sky);font-size:clamp(52px,7vw,82px)}
+    .project-feature-title{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+    .project-feature-title strong{font-size:38px;line-height:1;letter-spacing:-.04em}
+    .project-feature-title span{color:var(--sky);font:900 11px ui-monospace,Consolas,monospace;letter-spacing:.1em}
+    .about-card{position:relative;padding:52px 58px;background:var(--paper);border:2px solid var(--ink)}
     .wordmark{display:flex;align-items:center;gap:18px;margin:30px 0 28px;color:var(--blue);font-weight:950;font-size:clamp(22px,4vw,38px);letter-spacing:.06em}
     .wordmark b{color:var(--sky)}
     .wordmark i{font-style:normal;color:var(--muted);font-weight:700}
     footer{padding:40px 0;background:var(--ink);color:#a9bfd2;border-top:5px solid var(--sky);font-size:11px;letter-spacing:.08em}
     footer .shell{display:flex;justify-content:space-between;gap:24px}
+    :focus-visible{outline:3px solid var(--sky);outline-offset:4px}
+    @media(max-width:840px){
+      .feature-card{grid-template-columns:1fr}
+      .feature-mark{min-height:250px}
+      .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
     @media(max-width:680px){
       header{padding-bottom:38px}
       .hero{padding-top:42px}
       main{padding:58px 0 90px}
-      article{padding:34px 25px;box-shadow:7px 7px 0 #0d4b9618}
+      .nav-links a:first-child{display:none}
+      .feature-card{box-shadow:7px 7px 0 #0d4b9618}
+      .feature-copy,.about-card{padding:34px 25px}
+      .feature-mark{min-height:220px;padding:28px}
       .post-head{align-items:flex-start;flex-direction:column;gap:8px}
-      article p{font-size:16px}
+      .feature-copy p,.about-card p{font-size:16px}
+      .project-index{padding:34px 24px 40px;box-shadow:6px 6px 0 #69cce930}
+      .index-head{align-items:flex-start;flex-direction:column;gap:4px}
+      .project-item{min-height:96px;padding:15px}
+      .project-item--featured{min-height:210px}
+      .project-item--featured a{padding:22px}
+      .project-feature-title strong{font-size:32px}
       .wordmark{align-items:flex-start;flex-direction:column;gap:8px}
       footer .shell{flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{transition:none!important}
     }
   </style>
 </head>
@@ -60,7 +107,10 @@
   <header>
     <nav class="shell" aria-label="主导航">
       <a class="brand" href="/"><span>C</span>ELECEAN</a>
-      <a href="/rim/">RIM PROJECT →</a>
+      <div class="nav-links">
+        <a href="#projects">作品列表</a>
+        <a href="/rim/">RIM PROJECT →</a>
+      </div>
     </nav>
     <div class="hero shell">
       <p class="eyebrow">CELESTE × OCEAN</p>
@@ -70,15 +120,48 @@
 
   <main>
     <div class="posts shell">
-      <article id="rim">
-        <div class="post-head"><span>20TH PROJECT CELECEAN</span><time datetime="2026-06-25">2026-06-25</time></div>
-        <h2>RIM：干员们的现代演习</h2>
-        <p>RIM（Rhodes Island Maneuver）是一款围绕《明日方舟》角色展开的非商业同人游戏。它将干员剧情、策略性的回合制战斗与随机探索组合在一起。</p>
-        <p>开发过程、剧情文本与最新进度都集中记录在独立官网中。</p>
-        <a class="cta" href="/rim/">进入 RIM 官网 <span>→</span></a>
-      </article>
+      <section class="feature-card" id="rim" aria-labelledby="rim-title">
+        <div class="feature-copy">
+          <div class="post-head"><span>20TH PROJECT CELECEAN</span><time datetime="2026-06-25">2026-06-25</time></div>
+          <h2 id="rim-title">RIM：干员们的现代演习</h2>
+          <p>RIM（Rhodes Island Maneuver）是一款围绕《明日方舟》角色展开的非商业同人游戏。它将干员剧情、策略性的回合制战斗与随机探索组合在一起。</p>
+          <p>开发过程、剧情文本与最新进度都集中记录在独立官网中。</p>
+          <a class="cta" href="/rim/">进入 RIM 官网 <span>→</span></a>
+        </div>
+        <div class="feature-mark" aria-hidden="true">
+          <span class="feature-number">20</span>
+          <strong class="feature-name">RIM</strong>
+          <span class="feature-caption">PROJECT CELECEAN</span>
+        </div>
+      </section>
 
-      <article id="celecean">
+      <section class="project-index" id="projects" aria-labelledby="projects-title">
+        <div class="index-head">
+          <div>
+            <p class="eyebrow">PROJECT INDEX</p>
+            <h2 id="projects-title">作品列表</h2>
+          </div>
+          <p class="index-count">8 PROJECTS / 01—20</p>
+        </div>
+        <ol class="project-grid">
+          <li class="project-item"><span class="project-ordinal">1ST</span><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">2ND</span><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">3RD</span><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">5TH</span><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">7TH</span><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">9TH</span><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item"><span class="project-ordinal">19TH</span><span class="project-label">PROJECT CELECEAN</span></li>
+          <li class="project-item project-item--featured">
+            <a href="/rim/" aria-label="进入第二十号作品 RIM 官网">
+              <span class="project-ordinal">20TH</span>
+              <span class="project-label">PROJECT CELECEAN</span>
+              <span class="project-feature-title"><strong>RIM</strong><span>ENTER →</span></span>
+            </a>
+          </li>
+        </ol>
+      </section>
+
+      <article class="about-card" id="celecean">
         <div class="post-head"><span>ABOUT / 00</span><time datetime="2026-07-31">2026.07.31</time></div>
         <h2>Celecean，这个名字</h2>
         <div class="wordmark"><span>CELESTE</span><b>+</b><span>OCEAN</span><i>= CELECEAN</i></div>
